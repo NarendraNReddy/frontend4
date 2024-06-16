@@ -7,7 +7,6 @@ pipeline {
         disableConcurrentBuilds()
         ansiColor('xterm')
     }
-
     environment{
         def appVersion = '' //variable declaration
         nexusUrl = 'nexus.narendra.shop:8081'
@@ -61,23 +60,17 @@ pipeline {
                 }
             }
         }
-
-    //     stage('Deploy'){
-    //         when{
-    //             expression{
-    //                 params.deploy
-    //             }
-    //         }
-    //         steps{
-    //             script{
-    //                 def params = [
-    //                     string(name: 'appVersion', value: "${appVersion}")
-    //                 ]
-    //                 build job: 'frontend-deploy', parameters: params, wait: false
-    //             }
-    //         }
-    //     }
-    // }
+        // stage('Deploy'){
+        //     steps{
+        //         script{
+        //             def params = [
+        //                 string(name: 'appVersion', value: "${appVersion}")
+        //             ]
+        //             build job: 'frontend-deploy', parameters: params, wait: false
+        //         }
+        //     }
+        // }
+    }
     post { 
         always { 
             echo 'I will always say Hello again!'
